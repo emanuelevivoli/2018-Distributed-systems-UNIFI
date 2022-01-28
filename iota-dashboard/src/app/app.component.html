@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row style="height: 130px;">
+    <img src="../assets/logo.png" width="100px" height="108px" />
+    <span style="padding-left: 10%"> {{ title }}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group class="demo-tab-group">
+      <mat-tab label="Devices">
+        <mat-card *ngFor="let device of devices">
+          <mat-card-content>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{device.name}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  {{device.root}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <br>
+              <mat-list role="list">
+                <mat-list-item *ngFor="let message of device.messages" role="listitem">
+                  {{message.data}} {{message.dateTime}}
+                </mat-list-item>
+              </mat-list>
+            </mat-expansion-panel>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
